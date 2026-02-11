@@ -1,0 +1,5 @@
+Given the verb “{verb}”, generate its corresponding past participle and
+present participle. Only one past participle and one present participle
+must be generated. For irregular verbs, generate the corresponding
+irregular participles. The two words in output must be on the same
+line, separated by a comma.

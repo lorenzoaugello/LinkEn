@@ -1,0 +1,4 @@
+Given the adjective “{adjective}”, generate its corresponding deadjectival adverb, if it exists, like in the following example: “slowly” is
+the deadjectival adverb of the adjective “slow”. Only one deadjectival adverb must be generated. Do not re-generate the input adjective.
+There are adjectives that do not have a related deadjectival adverb, so if the adjective “{adjective}” does not have a deadjectival adverb,
+do not output anything.

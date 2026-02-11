@@ -1,0 +1,53 @@
+# Prefixes
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lila: <http://lila-erc.eu/ontologies/lila/> .
+@prefix linkenLemma: <http://linken-lod.eu/data/id/lemma/> .
+@prefix linkenIpoLemma: <http://linken-lod.eu/data/id/hypolemma/> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# IpoLemma
+
+linkenIpoLemma:005 a lila:Hypolemma ;
+rdfs:label "abandoned" ;
+lila:hasPOS lila:adjective ;
+ontolex:writtenRep "abandoned" ;
+lila:isHypolemma linkenLemma:006 ;
+dcterms:isPartOf linkenLemma:LemmaBank .
+
+linkenIpoLemma:007 a lila:Hypolemma ;
+rdfs:label "abandoning" ;
+lila:hasPOS lila:adjective ;
+ontolex:writtenRep "abandoning" ;
+lila:isHypolemma linkenLemma:006 ;
+dcterms:isPartOf linkenLemma:LemmaBank .
+
+#Lemma
+
+linkenLemma:006 a lila:Lemma ;
+rdfs:label "abandon" ;
+lila:hasPOS lila:verb ;
+ontolex:writtenRep "abandon" ;
+dcterms:isPartOf linkenLemma:LemmaBank .
+
+# LemmaBank
+
+linkenLemma:LemmaBank a lila:LemmaBank .
+
+# POS
+
+lila:Adjective a lila:POS .
+lila:Noun a lila:POS .
+lila:Verb a lila:POS .
+lila:Adverb a lila:POS .
+lila:Determiner a lila:POS .
+lila:CoordinatingConjunction a lila:POS .
+lila:SubordinatingConjunction a lila:POS .
+lila:Adposition a lila:POS .
+lila:Interjection a lila:POS .
+lila:Pronoun a lila:POS .
+
+#Hypolemma
+
+lila:HypoLemma rdfs:subClassOf lila:Lemma

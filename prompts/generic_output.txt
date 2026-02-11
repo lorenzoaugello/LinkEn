@@ -1,0 +1,83 @@
+Given the lemma "{lemma}", structure the following information in
+RDF format according to the example and the rules contained in the
+reported ontology. For words that can have more than one part of
+speech, generate as many lemmas as the possible parts of speech.
+All the possible parts of speech are included in the ontology. The
+lila:hasPOS Property does not have the lila:POS Class as range, but
+rather an individual of that class, as listed here: lila:noun, lila:adjective,
+lila:determiner, lila:adverb, lila:verb, lila:coordinating conjunction, lila:
+subordinating conjunction, lila:adposition, lila:pronoun, lila:interjection.
+If the lemma “{lemma}” could have more than one part of speech,
+generate two distinct lemmas with the corresponding parts of speech
+and with different unique identifiers. If the lemma "{lemma}" could
+have more than one written representation, generate them with the
+ontolex:writtenRep Property, as in the example of “analyse” (ontolex:writtenRep “analyse” , “analyze”). The output must be only
+the Turtle code and nothing else. Only the information about the
+lemma must be generated once and not repeated, and nothing else
+that is contained in the ontology. The information about the prefixes must not be generated in output. The following string “linkenLemma:LemmaBank a lila:LemmaBank .” must not be generated.
+Include everything between the string ```turtle at the beginning and ``` at the end, without stopping and interrupting the triples, as in the
+following example:
+
+```turtle
+linkenLemma:123 a lila:Lemma ;
+rdfs:label “absolute” ;
+lila:hasPOS lila:adjective ;
+ontolex:writtenRep “absolute” ;
+dcterms:isPartOf linkenLemma:LemmaBank .
+```
+
+The following is the ontology to be compliant with, which must
+not be generated in output: 
+
+# Prefixes
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lila: <http://lila-erc.eu/ontologies/lila/> .
+@prefix linkenLemma: <http://linken-lod.eu/data/id/lemma/> .
+@prefix linkenIpoLemma: <http://linken-lod.eu/data/id/hypolemma/> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# IpoLemma
+
+linkenIpoLemma:005 a lila:Hypolemma ;
+rdfs:label "abandoned" ;
+lila:hasPOS lila:adjective ;
+ontolex:writtenRep "abandoned" ;
+lila:isHypolemma linkenLemma:006 ;
+dcterms:isPartOf linkenLemma:LemmaBank .
+
+linkenIpoLemma:007 a lila:Hypolemma ;
+rdfs:label "abandoning" ;
+lila:hasPOS lila:adjective ;
+ontolex:writtenRep "abandoning" ;
+lila:isHypolemma linkenLemma:006 ;
+dcterms:isPartOf linkenLemma:LemmaBank .
+
+#Lemma
+
+linkenLemma:006 a lila:Lemma ;
+rdfs:label "abandon" ;
+lila:hasPOS lila:verb ;
+ontolex:writtenRep "abandon" ;
+dcterms:isPartOf linkenLemma:LemmaBank .
+
+# LemmaBank
+
+linkenLemma:LemmaBank a lila:LemmaBank .
+
+# POS
+
+lila:Adjective a lila:POS .
+lila:Noun a lila:POS .
+lila:Verb a lila:POS .
+lila:Adverb a lila:POS .
+lila:Determiner a lila:POS .
+lila:CoordinatingConjunction a lila:POS .
+lila:SubordinatingConjunction a lila:POS .
+lila:Adposition a lila:POS .
+lila:Interjection a lila:POS .
+lila:Pronoun a lila:POS .
+
+#Hypolemma
+
+lila:HypoLemma rdfs:subClassOf lila:Lemma
